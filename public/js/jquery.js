@@ -10926,7 +10926,9 @@ var __webpack_exports__ = {};
 /*!********************************!*\
   !*** ./resources/js/jquery.js ***!
   \********************************/
-__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var jquery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+window.$ = window.jquery = jquery;
 })();
 
 /******/ })()

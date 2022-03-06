@@ -14,27 +14,29 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    @stack('extra-css')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100">
+    <div class="bg-gray-100">
         <div class="container">
             @if (Route::has('login'))
                 <div class="fixed top-0 right-0 hidden px-12 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="mx-2 text-sm text-gray-700 underline dark:text-gray-500">Dashboard</a>
                     @else
                         @if (!Route::is('home'))
-                            <a href="{{ route('home') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Home</a>
+                            <a href="{{ route('home') }}" class="mx-2 text-sm text-gray-700 underline dark:text-gray-500">Home</a>
                         @endif
                         @if (!Route::is('login'))
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
+                            <a href="{{ route('login') }}" class="mx-2 text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
                         @endif
 
                         @if (Route::has('register') && !Route::is('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline dark:text-gray-500">Register</a>
+                            <a href="{{ route('register') }}" class="mx-2 text-sm text-gray-700 underline dark:text-gray-500">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -45,6 +47,8 @@
         </div>
     </div>
 
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    @stack('extra-js')
 </body>
 
 </html>

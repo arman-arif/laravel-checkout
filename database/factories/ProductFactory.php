@@ -20,7 +20,7 @@ class ProductFactory extends Factory
         $productName = $this->faker->unique()->sentence(3, false);
         return [
             'name' => $productName,
-            'image' => $this->faker->imageUrl(), //https://picsum.photos/300/300
+            'image' => $this->faker->imageUrl(height: 200, width: 200, gray: true), //https://picsum.photos/300/300
             'slug' => Str::slug($productName),
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 0, 100),
